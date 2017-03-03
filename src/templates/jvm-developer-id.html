@@ -1,0 +1,91 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<link rel="import" href="../../bower_components/app-layout/app-header/app-header.html">
+<link rel="import" href="../../bower_components/app-layout/app-header-layout/app-header-layout.html">
+<link rel="import" href="../../bower_components/app-layout/app-toolbar/app-toolbar.html">
+<link rel="import" href="../../bower_components/app-route/app-location.html">
+<link rel="import" href="../../bower_components/app-route/app-route.html">
+<link rel="import" href="../../bower_components/iron-pages/iron-pages.html">
+
+<dom-module id="jvm-developer-id">
+  <template>
+    <style>
+      :host {
+        --app-primary-color: #4285f4;
+        --app-secondary-color: black;
+
+        display: block;
+      }
+
+      app-header {
+        color: #fff;
+        background-color: var(--app-primary-color);
+      }
+      app-header paper-icon-button {
+        --paper-icon-button-ink-color: white;
+      }
+    </style>
+
+    <app-location route="{{route}}"></app-location>
+    <app-route
+      route="{{route}}"
+      pattern="/:page"
+      data="{{routeData}}"
+      tail="{{subroute}}"></app-route>
+
+    <app-header-layout>
+      <app-header condenses="true" fixed="true" shadow="true">
+        <app-toolbar>
+          <div condensed-title>JVMDeveloperID - Condensed</div>
+        </app-toolbar>
+
+        <app-toolbar></app-toolbar>
+
+        <app-toolbar>
+          <div main-title spacer>JVMDeveloperID</div>
+        </app-toolbar>
+      </app-header>
+
+      <iron-pages
+        selected="[[page]]"
+        attr-for-selected="name"
+        fallback-selection="404"
+        role="main"
+      >
+        <about-page name="about"></about-page>
+      </iron-pages>
+    </app-header-layout>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'jvm-developer-id',
+
+      properties: {
+        page: {
+          type: String,
+          reflectToAttribute: true,
+          observer: '_pageChanged',
+        },
+      },
+
+      observers: [
+        '_routePageChanged(routeData.page)',
+      ],
+
+      _routePageChanged: function(page) {
+        this.page = page || 'about'
+      },
+
+      _pageChanged: function(page) {
+        const resolvedPageUrl = this.resolveUrl('../' + page + '-page.html');
+
+        this.importHref(resolvedPageUrl, null, this._fourOhFour, true)
+      },
+
+      _fourOhFour: function () {
+        this.page = '404'
+      }
+    });
+  </script>
+</dom-module>

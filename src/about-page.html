@@ -1,0 +1,41 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../bower_components/iron-icons/social-icons.html">
+<link rel="import" href="../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
+
+<link rel="import" href="templates/jvm-developer-id.html">
+
+<dom-module id="about-page">
+  <template>
+    <paper-card heading="Tentang Kami" elevation="1" animated-shadow="false">
+      <div class="card-content">
+        <p>
+          Maecenas faucibus mollis interdum. Duis mollis, est non commodo luctus, 
+          nisi erat porttitor ligula, eget lacinia odio sem nec elit. Aenean lacinia
+          bibendum nulla sed consectetur. Nullam quis risus eget urna mollis ornare
+          vel eu leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Nullam id dolor id nibh ultricies vehicula ut id elit. Aenean eu leo quam.
+          Pellentesque ornare sem lacinia quam venenatis vestibulum.
+        </p>
+
+        <p>
+          Nulla vitae elit libero, a pharetra augue. Cras mattis consectetur purus sit
+          amet fermentum. Cras mattis consectetur purus sit amet fermentum.
+          Maecenas faucibus mollis interdum. Aenean lacinia bibendum nulla sed
+          consectetur.
+        </p>
+      </div>
+      <div class="card-actions">
+        <paper-icon-button icon="bookmark"></paper-icon-button>
+        <paper-icon-button icon="social:share"></paper-icon-button>
+      </div>
+    </paper-card>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'about-page',
+    })
+  </script>
+</dom-module>
