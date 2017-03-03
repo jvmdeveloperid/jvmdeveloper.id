@@ -1,0 +1,16 @@
+{
+  "entrypoint": "index.html",
+  "shell": "src/templates/jvm-developer-id.html",
+  "fragments": [
+    "src/about.html"
+  ],
+  "sourceGlobs": [
+    "src/**/*",
+    "images/**/*",
+    "bower.json"
+  ],
+  "includeDependencies": [
+    "manifest.json",
+    "bower_components/webcomponentsjs/webcomponents-lite.min.js"
+  ]
+}
